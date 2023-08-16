@@ -49,7 +49,6 @@
 
     }
 
-    //new code to test github
 
     // 👉 CHALLENGE 2
     // 🧠 The function stripVowels takes a string, strips all lowcase vowel letters (a,e,i,o,u) from it and returns it.
@@ -58,6 +57,18 @@
     // ❗ Notes:
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the characters of the string.
     function stripVowels(str) {
+      const splitString = str.split("") 
+      const result = []
+
+      for (let idx = 0; idx < splitString.length; idx++) {
+        const char = splitString[idx]
+        if (char !== "a" && char !== "e" && char !== "i" && char !== "o" && char !== "u") {
+          result.push(char)
+
+        }
+      }
+
+      return result.join('')
 
     }
 
@@ -66,7 +77,14 @@
     // 🧠 Examples of usage:
     // sumNumsWhile([1, 2, 3]) // should return 6
     // sumNumsWhile([1, 2, 13]) // should return "I'm too superstitious!"
-    function sumNumsWhile() {
+    function sumNumsWhile(numbers) {
+
+      let finalSum = 0
+      let idx = 0
+      while (idx < numbers.length) {
+        let element = numbers[idx]
+
+      }
 
     }
 
