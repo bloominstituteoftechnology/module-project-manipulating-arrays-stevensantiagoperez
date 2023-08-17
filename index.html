@@ -120,7 +120,7 @@
       
       while (lifePoints > 0) {
         lifePoints -= round
-        
+
         if (lifePoints <= 0) {
           return `You died in round ${round}`
         }
@@ -137,8 +137,17 @@
     // findEvenNums([0, 1, 2, 3, 4]) // should return [0, 2, 4]
     // ❗ Notes:
     // 🧠 Use any kind of loop you'd like and the push method to populate the array of even numbers.
-    function findEvenNums() {
+    function findEvenNums(integersArr) {
+      let evenArr = []
 
+      for (let i = 0; i < integersArr.length; i++) {
+        
+        let intElement = integersArr[i]
+        if (intElement % 2 === 0) {
+          evenArr.push(intElement)
+        } 
+      }
+        return evenArr
     }
 
     // 👉 CHALLENGE 6
@@ -148,7 +157,20 @@
     // 🧠 Ages in the subarrays should appear in the same order they appeared in the original array.
     // 🧠 Examples of usage:
     // separateAges([31, 12, 25, 65, 84, 20]) // should return [[12, 20], [31, 25, 65, 84]]
-    function separateAges() {
+    function separateAges(ages) {
+      under21Arr = []
+      equalToOrOlder21Arr = []
+
+      for (let i = 0; i < ages.length; i++) {
+        if (ages[i] < 21) {
+          under21Arr.push(ages[i])
+        } else if (ages[i] >= 21) {
+          equalToOrOlder21Arr.push(ages[i])
+        }
+      }
+      return [under21Arr, equalToOrOlder21Arr]
+
+
 
     }
 
@@ -159,8 +181,13 @@
     // 🧠 The "tail" prop contains an array holding the elements of the array after the first one.
     // 🧠 Examples of usage:
     // headAndTail([1, 2, 3]) // should return { head: 1, tail: [2, 3] }
-    function headAndTail() {
+    function headAndTail(whatSide) {
+      let gameIntegers = {
+        "head": whatSide[0], 
+        'tail': whatSide.slice(1),
+      }
 
+      return gameIntegers
     }
 
     // 👉 CHALLENGE 8
@@ -170,8 +197,32 @@
     // nestedLoops(['hello', 'goodbye']) // should return ['hEllO', 'gOOdbyE']
     // ❗ Notes:
     // 🧠 To capitalize a string you can use its toUpperCase method: "a".toUpperCase() returns "A"
-    function nestedLoops() {
+    function nestedLoops(manyStrings) {
+      let capitalizedArray = []
 
+      for (let i in manyStrings) {
+
+        let word = manyStrings[i]
+        let modifiedWord = ''
+
+        for (let i in word) {
+          let char = word[i]
+
+          if (char === "a" || char === "e" || char === "i" || char === "o" || char === "u" ) {
+            let upperCased = char.toUpperCase()
+            modifiedWord += upperCased
+
+          } else{
+            modifiedWord += char
+          }
+        }
+
+        capitalizedArray.push(modifiedWord)
+
+      }
+
+
+      return capitalizedArray
     }
 
     // 👉 CHALLENGE 9
@@ -185,6 +236,15 @@
     // 🧠 Practice using pop and slice.
     // 🧠 Note that pop modifies the original array in place and returns the "popped" element, whereas slice gives us a brand new array.
     function crazyTrimmer(arr) {
+
+        if (arr.length % 2 === 0) {
+            arr.pop()
+            return arr
+        } else {
+            return arr.slice(1, arr.length - 1)
+        }
+
+
 
     }
 
